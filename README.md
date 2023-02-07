@@ -365,7 +365,7 @@ Before you start writing your SQL queries however - you might want to investigat
 If Danny wants to expand his range of pizzas - how would this impact the existing data design? Write an  `INSERT`  statement to demonstrate what would happen if a new  `Supreme`  pizza with all the toppings was added to the Pizza Runner menu?
 </details>
 
-To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner#solutions).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner).
 
 ## 🍏 Case Study #3: Foodie-Fi
 ![Foodie-Fi logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203.png)
@@ -992,7 +992,7 @@ Some ideas you might want to investigate further include:
 
 </details>
 
-To view solutions, [https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%236%20-%20Clique%20Bait).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%236%20-%20Clique%20Bait).
 
 ## 👕 Case Study #7 - Balanced Tree
 ![Balanced Tree logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%207.png)
