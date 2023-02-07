@@ -1,6 +1,6 @@
 ﻿# Case Study #5 - Data Mart
 
-![Data Mart logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipM0ouuVZ9UKN7v9vKzMWUMC_pFsK7xyW8QbgJNb)
+![Data Mart logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%205.png)
 
 ## 📚  Table of Contents
 
@@ -29,7 +29,7 @@ For this case study there is only a single table:  `data_mart.weekly_sales`
 
 The  `Entity Relationship Diagram`  is shown below with the data types made clear, please note that there is only this one table - hence why it looks a little bit lonely!
 
-![Data Mart ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPNbF8fejMSPbTf-iw8gftSpBpxNAU55nDH1vge)
+![Data Mart ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%205%20ERD.png)
 
 ## Column Dictionary
 

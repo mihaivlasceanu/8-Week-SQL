@@ -1,6 +1,6 @@
 ﻿# Case Study #6 - Clique Bait
 
-![Clique Bait logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipMjq6tl9dY64V2fA_yE2p46aENmcqz36c0NwDVD)
+![Clique Bait logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%206.png)
 
 ## 📚  Table of Contents
 

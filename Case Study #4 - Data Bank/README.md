@@ -1,6 +1,6 @@
 ﻿# Case Study #4 - Data Bank
 
-![Data Bank logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipO_0szkUB-j6n8A6Y_ZObmU8rDbV1q3BAa-Fq4i)
+![Data Bank logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%204.png)
 
 ## 📚  Table of Contents
 
@@ -29,7 +29,7 @@ The Data Bank team have prepared a data model for this case study as well as a f
 
 ## Entity Relationship Diagram
 
-![Data Bank ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPCpTCclmnylKUlhTVOORiw3Wy94q6FvBaCxRFq)
+![Data Bank ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%204%20ERD.png)
 
 ## Datasets
 

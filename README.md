@@ -14,7 +14,7 @@ Repository containing solutions for the 8 case studies in **[#8WeekSQLChallenge]
 -   [🍅  Case Study #8 - Fresh Segments](https://github.com/)
 
 ## 🍣 Case Study #1: Danny's Diner 
-![Danny's Diner logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNT0Xf714Flc5PwfYukWC6B9ToLgbzsPEfkbzr6)
+![Danny's Diner logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%201.png)
 
 ### Introduction
 
@@ -34,7 +34,7 @@ Danny has provided you with a sample of his overall customer data due to privacy
 
 ### Entity Relationship Diagram
 
-![Danny's Diner ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipN-fX9p3qfai8MuV9zrvWRqO1WPTKLu4YVAWD6o)
+![Danny's Diner ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%201%20ERD.png)
 
 <details>
 <summary>Datasets</summary>
@@ -159,7 +159,7 @@ The following questions are related creating basic data tables that Danny and hi
 To view solutions, [click here](https://github.com/).
 
 ## 🍕 Case Study #2: Pizza Runner
-![Pizza Runner logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNVmOhYeOkZB-sc0UE35CnHelJocQR6MRjDiWLk)
+![Pizza Runner logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%202.png)
 
 ### Introduction
 
@@ -179,7 +179,7 @@ He has prepared for us an entity relationship diagram of his database design but
 
 ### Entity Relationship Diagram
 
-![Pizza Runner ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPSWfMVoTnEn9yPY52MLBQypLKD6OaUfnvU4gfp)
+![Pizza Runner ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%202%20ERD.png)
 
 <details>
 <summary>Datasets</summary>
@@ -368,7 +368,7 @@ If Danny wants to expand his range of pizzas - how would this impact the existin
 To view solutions, [click here](https://github.com/).
 
 ## 🍏 Case Study #3: Foodie-Fi
-![Foodie-Fi logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPFIQgQLOVcM9Hbl4HIPIpByG9wk-7oDuTbA1vd)
+![Foodie-Fi logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203.png)
 
 ### Introduction
 
@@ -384,7 +384,7 @@ Danny has shared the data design for Foodie-Fi and also short descriptions on ea
 
 ### Entity Relationship Diagram
 
-![Foodie-Fi ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNy5YROoQvg0HXlvsoW7c0Dpx0uyFNz96j6e8-w)
+![Foodie-Fi ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203%20ERD.png)
 
 <details>
 <summary>Datasets</summary>
@@ -548,7 +548,7 @@ The following are open ended questions which might be asked during a technical i
 To view solutions, [click here](https://github.com/).
 
 ## 🏦 Case Study #4: Data Bank
-![Data Bank logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipO_0szkUB-j6n8A6Y_ZObmU8rDbV1q3BAa-Fq4i)
+![Data Bank logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%204.png)
 
 ### Introduction
 
@@ -570,7 +570,7 @@ The Data Bank team have prepared a data model for this case study as well as a f
 
 ### Entity Relationship Diagram
 
-![Data Bank ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPCpTCclmnylKUlhTVOORiw3Wy94q6FvBaCxRFq)
+![Data Bank ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%204%20ERD.png)
 
 <details>
 <summary>Datasets</summary>
@@ -661,7 +661,7 @@ The following case study questions include some general data exploration analysi
 To view solutions, [click here](https://github.com/).
 
 ## 🏬 Case Study #5: Data Mart
-![Data Mart logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipM0ouuVZ9UKN7v9vKzMWUMC_pFsK7xyW8QbgJNb)
+![Data Mart logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%205.png)
 
 ### Introduction
 
@@ -683,7 +683,7 @@ For this case study there is only a single table:  `data_mart.weekly_sales`
 
 The  `Entity Relationship Diagram`  is shown below with the data types made clear, please note that there is only this one table - hence why it looks a little bit lonely!
 
-![Data Mart ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPNbF8fejMSPbTf-iw8gftSpBpxNAU55nDH1vge)
+![Data Mart ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%205%20ERD.png)
 
 ### Column Dictionary
 
@@ -794,7 +794,7 @@ Do you have any further recommendations for Danny’s team at Data Mart or any i
 To view solutions, [click here](https://github.com/).
 
 ## 💻 Case Study #6: Clique Bait
-![Clique Bait logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipMjq6tl9dY64V2fA_yE2p46aENmcqz36c0NwDVD)
+![Clique Bait logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%206.png)
 
 ### Introduction
 
@@ -995,7 +995,7 @@ Some ideas you might want to investigate further include:
 To view solutions, [click here](https://github.com/).
 
 ## 👕 Case Study #7 - Balanced Tree
-![Balanced Tree logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPawJe6dSzyUKH-B-F4aKvl6G2VzkvlyBNLtKok)
+![Balanced Tree logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%207.png)
 
 ### Introduction
 
@@ -1139,7 +1139,7 @@ Hint: you may want to consider using a recursive CTE to solve this problem!
 To view solutions, [click here](https://github.com/).
 
 ## 🍅 Case Study #8: Fresh Segments
-![Fresh Segments logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipOY6FecKDQvMupIzwknnAhkJ_9lC9sk5y-vjbP2)
+![Fresh Segments logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%208.png)
 
 ### Introduction
 

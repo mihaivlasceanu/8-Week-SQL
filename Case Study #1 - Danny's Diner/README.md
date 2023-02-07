@@ -1,6 +1,6 @@
 ﻿
 # Case Study #1 - Danny's Diner
-![Danny's Diner Logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNT0Xf714Flc5PwfYukWC6B9ToLgbzsPEfkbzr6)
+![Danny's Diner Logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%201.png)
 
 ## 📚  Table of Contents
 
@@ -34,7 +34,7 @@ Danny has shared with you 3 key datasets for this case study:
 
 You can inspect the entity relationship diagram and example data below.
 
-![Danny's Diner ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipN-fX9p3qfai8MuV9zrvWRqO1WPTKLu4YVAWD6o)
+![Danny's Diner ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%201%20ERD.png)
 
 
 ### Table 1: sales

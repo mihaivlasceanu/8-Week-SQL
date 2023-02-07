@@ -1,6 +1,6 @@
 ﻿# Case Study #7 - Balanced Tree
 
-![Balanced Tree logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPawJe6dSzyUKH-B-F4aKvl6G2VzkvlyBNLtKok)
+![Balanced Tree logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%207.png)
 
 ## 📚  Table of Contents
 

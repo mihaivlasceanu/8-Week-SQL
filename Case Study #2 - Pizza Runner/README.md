@@ -1,6 +1,6 @@
 ﻿# Case Study #2 - Pizza Runner
 
-![Pizza Runner logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNVmOhYeOkZB-sc0UE35CnHelJocQR6MRjDiWLk)
+![Pizza Runner logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%202.png)
 
 ## 📚  Table of Contents
 
@@ -27,7 +27,7 @@ He has prepared for us an entity relationship diagram of his database design but
 
 ## Entity Relationship Diagram
 
-![Pizza Runner ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPSWfMVoTnEn9yPY52MLBQypLKD6OaUfnvU4gfp)
+![Pizza Runner ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%202%20ERD.png)
 
 ## Datasets
 

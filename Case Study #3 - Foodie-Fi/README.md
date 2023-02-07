@@ -1,6 +1,6 @@
 ﻿# Case Study #3 - Foodie-Fi
 
-![Foodie-Fi logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipPFIQgQLOVcM9Hbl4HIPIpByG9wk-7oDuTbA1vd)
+![Foodie-Fi logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203.png)
 
 ## 📚  Table of Contents
 
@@ -23,7 +23,7 @@ Danny has shared the data design for Foodie-Fi and also short descriptions on ea
 
 ## Entity Relationship Diagram
 
-![Foodie-Fi ERD](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipNy5YROoQvg0HXlvsoW7c0Dpx0uyFNz96j6e8-w)
+![Foodie-Fi ERD](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203%20ERD.png)
 
 ## Datasets
 

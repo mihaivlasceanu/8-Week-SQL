@@ -1,6 +1,6 @@
 ﻿# Case Study #8 - Fresh Segments
 
-![Fresh Segments logo](https://photos.google.com/album/AF1QipPs8My-_GQ-dLdnWDUwzropnS3JUTVTQiwxgiEP/photo/AF1QipOY6FecKDQvMupIzwknnAhkJ_9lC9sk5y-vjbP2)
+![Fresh Segments logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%208.png)
 
 ## 📚  Table of Contents
 
@@ -133,7 +133,7 @@ Required output for question 4:
 | 2019-07-01 | Las Vegas Trip Planners       | 2.82                  | 3.33               | Las Vegas Trip Planners: 2.77     | Readers of Honduran Content: 4.41 |
 | 2019-08-01 | Cosmetics and Beauty Shoppers | 2.73                  | 2.77               | Las Vegas Trip Planners: 2.82     | Las Vegas Trip Planners: 2.77     |
 
-# Solutions
+# Solutions 
 
 ## A. Data Exploration and Cleaning
 
