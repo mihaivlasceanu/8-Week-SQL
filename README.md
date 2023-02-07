@@ -156,7 +156,7 @@ The following questions are related creating basic data tables that Danny and hi
 | C           | 2021-01-07 | ramen        | 12    | N      | null    |
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner).
 
 ## 🍕 Case Study #2: Pizza Runner
 ![Pizza Runner logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%202.png)
@@ -365,7 +365,7 @@ Before you start writing your SQL queries however - you might want to investigat
 If Danny wants to expand his range of pizzas - how would this impact the existing data design? Write an  `INSERT`  statement to demonstrate what would happen if a new  `Supreme`  pizza with all the toppings was added to the Pizza Runner menu?
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%232%20-%20Pizza%20Runner#solutions).
 
 ## 🍏 Case Study #3: Foodie-Fi
 ![Foodie-Fi logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%203.png)
@@ -545,7 +545,7 @@ The following are open ended questions which might be asked during a technical i
 
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%233%20-%20Foodie-Fi).
 
 ## 🏦 Case Study #4: Data Bank
 ![Data Bank logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%204.png)
@@ -658,7 +658,7 @@ The following case study questions include some general data exploration analysi
 -   Move from a positive balance in the first month to a negative balance in the second month?
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%234%20-%20Data%20Bank).
 
 ## 🏬 Case Study #5: Data Mart
 ![Data Mart logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%205.png)
@@ -791,7 +791,7 @@ Which areas of the business have the highest negative impact in sales metrics pe
 Do you have any further recommendations for Danny’s team at Data Mart or any interesting insights based off this analysis?
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%235%20-%20Data%20Mart).
 
 ## 💻 Case Study #6: Clique Bait
 ![Clique Bait logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%206.png)
@@ -992,7 +992,7 @@ Some ideas you might want to investigate further include:
 
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%236%20-%20Clique%20Bait).
 
 ## 👕 Case Study #7 - Balanced Tree
 ![Balanced Tree logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%207.png)
@@ -1136,7 +1136,7 @@ Use a single SQL query to transform the  `product_hierarchy`  and  `product_pric
 Hint: you may want to consider using a recursive CTE to solve this problem!
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree).
 
 ## 🍅 Case Study #8: Fresh Segments
 ![Fresh Segments logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%208.png)
@@ -1273,4 +1273,4 @@ Required output for question 4:
 
 </details>
 
-To view solutions, [click here](https://github.com/).
+To view solutions, [click here](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%238%20-%20Fresh%20Segments).
