@@ -4,10 +4,10 @@
 
 ## 📚  Table of Contents
 
--   [📋  Introduction](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#briefcase-business-case)
--   [📄 Available Data](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#bookmark_tabsexample-datasets)
--   [❓  Case Study Questions](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#triangular_flag_on_post-questions-and-solution)
--  [✔️  Solutions](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#triangular_flag_on_post-questions-and-solution)
+-   [📋  Introduction](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree#introduction)
+-   [📄 Available Data](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree#available-data)
+-   [❓  Case Study Questions](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree#case-study-questions)
+-  [✔️  Solutions](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%237%20-%20Balanced%20Tree#solutions)
 
 # Introduction
 

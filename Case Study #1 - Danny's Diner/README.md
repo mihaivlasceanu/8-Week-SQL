@@ -4,11 +4,11 @@
 
 ## 📚  Table of Contents
 
--   [📋  Introduction](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#briefcase-business-case)
--   [🔍  Problem Statement](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#mag-entity-relationship-diagram)
--   [📄 Available Data](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#bookmark_tabsexample-datasets)
--   [❓  Case Study Questions](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#triangular_flag_on_post-questions-and-solution)
--  [✔️  Solutions](https://github.com/tfkachmad/8-Week-SQL-Challenge/blob/main/Case-Study-4-Data-Bank/README.md#triangular_flag_on_post-questions-and-solution)
+-   [📋  Introduction](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner#introduction)
+-   [🔍  Problem Statement](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner#problem-statement)
+-   [📄 Available Data](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner#available-data)
+-   [❓  Case Study Questions](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner#case-study-questions)
+-  [✔️  Solutions](https://github.com/mihaivlasceanu/8-Week-SQL/tree/main/Case%20Study%20%231%20-%20Danny's%20Diner#solutions)
 
 ## Introduction
 

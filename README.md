@@ -4,14 +4,14 @@ Repository containing solutions for the 8 case studies in **[#8WeekSQLChallenge]
 
 ## Table of Contents
 
--   [🍣  Case Study #1 - Danny’s Diner](https://github.com/)
--   [🍕  Case Study #2 - Pizza Runner](https://github.com/)
--   [🍏  Case Study #3 - Foodie-Fi](https://github.com/)
--   [🏦  Case Study #4 - Data Bank](https://github.com/)
--   [🏬  Case Study #5 - Data Mart](https://github.com/)
--   [💻  Case Study #6 - Clique Bait](https://github.com/)
--   [👕  Case Study #7 - Balanced Tree](https://github.com/)
--   [🍅  Case Study #8 - Fresh Segments](https://github.com/)
+-   [🍣  Case Study #1 - Danny’s Diner](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-1-dannys-diner)
+-   [🍕  Case Study #2 - Pizza Runner](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-2-pizza-runner)
+-   [🍏  Case Study #3 - Foodie-Fi](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-3-foodie-fi)
+-   [🏦  Case Study #4 - Data Bank](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-4-data-bank)
+-   [🏬  Case Study #5 - Data Mart](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-5-data-mart)
+-   [💻  Case Study #6 - Clique Bait](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-6-clique-bait)
+-   [👕  Case Study #7 - Balanced Tree](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-7---balanced-tree)
+-   [🍅  Case Study #8 - Fresh Segments](https://github.com/mihaivlasceanu/8-Week-SQL#-case-study-8-fresh-segments)
 
 ## 🍣 Case Study #1: Danny's Diner 
 ![Danny's Diner logo](https://github.com/mihaivlasceanu/8-Week-SQL/blob/main/images/Week%201.png)
