@@ -195,7 +195,7 @@ Required output for question 4:
 	month_year,
 	COUNT(*),
 	ROUND(1.0*100*COUNT(*)/(SELECT COUNT(*)
-							FROM interest_metrics),2) AS pct_of_total
+	FROM interest_metrics),2) AS pct_of_total
 	FROM interest_metrics
 	WHERE month_year IS NULL
 	GROUP BY 1
@@ -299,7 +299,7 @@ Required output for question 4:
 
 	SOLUTION 2:
 	```sql
-	SELECT   						 -- making sure there are no multiple entries per id value (static snapshot rather than a Slow Changing Dimension table)
+	SELECT   		-- making sure there are no multiple entries per id value (static snapshot rather than a Slow Changing Dimension table)
 	id,
 	COUNT(*)
 	FROM interest_map
@@ -541,8 +541,7 @@ Required output for question 4:
 	SELECT
 	*
 	FROM interest_metrics
-	WHERE interest_id NOT IN (SELECT interest_id
-							 FROM interest_selection)
+	WHERE interest_id NOT IN (SELECT interest_id FROM interest_selection)
 	)
 
 	SELECT
@@ -576,9 +575,8 @@ Required output for question 4:
 		interest_metrics.month_year,
 		interest_map.interest_name,
 		interest_metrics.composition,
-		RANK() OVER (
-	  				PARTITION BY interest_map.interest_name
-	  				ORDER BY composition DESC
+		RANK() OVER (PARTITION BY interest_map.interest_name
+	  				 ORDER BY composition DESC
 		) AS interest_rank
 	FROM interest_metrics
 	INNER JOIN interest_map
@@ -661,8 +659,7 @@ Required output for question 4:
 	*
 	INTO filtered_metrics  --creating a new table for our filtered dataset
 	FROM interest_metrics
-	WHERE interest_id NOT IN (SELECT interest_id
-							 FROM interest_selection)
+	WHERE interest_id NOT IN (SELECT interest_id FROM interest_selection)
 
 
 	WITH cte_ranked_interest AS (
@@ -670,9 +667,8 @@ Required output for question 4:
 		filtered_metrics.month_year,
 		interest_map.interest_name,
 		filtered_metrics.composition,
-		RANK() OVER (
-	    			PARTITION BY interest_map.interest_name
-	    			ORDER BY composition DESC
+		RANK() OVER (PARTITION BY interest_map.interest_name
+	    			 ORDER BY composition DESC
 		) AS interest_rank
 	FROM filtered_metrics
 	INNER JOIN interest_map ON filtered_metrics.interest_id::int = interest_map.id
