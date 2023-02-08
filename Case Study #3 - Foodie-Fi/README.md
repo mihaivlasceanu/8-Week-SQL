@@ -309,9 +309,8 @@ Customer 598 started his free trial on the 28th of December 2020 and chose to re
 	```sql
 	SELECT 
 	COUNT(DISTINCT customer_id) AS churned,
-	ROUND(1.0*100*COUNT(DISTINCT customer_id)/ (SELECT 
-								   				 COUNT(DISTINCT customer_id)
-								   				 FROM subscriptions),1) AS churned_percentage
+	ROUND(1.0*100*COUNT(DISTINCT customer_id)/ (SELECT COUNT(DISTINCT customer_id)
+	FROM subscriptions),1) AS churned_percentage
 	FROM subscriptions s
 	JOIN plans p ON s.plan_id=p.plan_id
 	WHERE s.plan_id=4
@@ -365,8 +364,8 @@ Customer 598 started his free trial on the 28th of December 2020 and chose to re
 	SELECT 
 	COUNT(DISTINCT customer_id) AS churned,
 	ROUND(100*COUNT(DISTINCT customer_id)*1.0 / (SELECT 
-								   				 COUNT(DISTINCT customer_id)
-								   				 FROM subscriptions),1) AS churned_percentage
+	COUNT(DISTINCT customer_id)
+	FROM subscriptions),1) AS churned_percentage
 	FROM churn_cte
 	```
 	SOLUTION 2 (more straightforward):
@@ -430,8 +429,8 @@ Customer 598 started his free trial on the 28th of December 2020 and chose to re
 	plan_id,
 	COUNT(*),
 	ROUND(100*COUNT(DISTINCT customer_id)*1.0 / (SELECT 
-								   				 COUNT(DISTINCT customer_id)
-								   				 FROM subscriptions),1) AS churned_percentage
+	COUNT(DISTINCT customer_id)
+	FROM subscriptions),1) AS churned_percentage
 	FROM churn_cte
 	GROUP BY plan_id
 	```		
@@ -503,8 +502,8 @@ Customer 598 started his free trial on the 28th of December 2020 and chose to re
 	plan_name,
 	COUNT(*),
 	ROUND(100*COUNT(DISTINCT customer_id)*1.0 / (SELECT 
-								   				 COUNT(DISTINCT customer_id)
-								   				 FROM subscriptions),1) AS percentage
+	COUNT(DISTINCT customer_id)
+	FROM subscriptions),1) AS percentage
 	FROM last_plan
 	GROUP BY 1,2
 	ORDER BY 1
