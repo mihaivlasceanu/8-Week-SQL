@@ -331,8 +331,8 @@ Hint: you may want to consider using a recursive CTE to solve this problem!
 	SELECT
 	member,
 	ROUND(100*1.0*COUNT(DISTINCT txn_id)/(SELECT 
-						    			  COUNT(DISTINCT txn_id)
-						    			  FROM sales), 2) AS transactions_pct
+	COUNT(DISTINCT txn_id)
+	FROM sales), 2) AS transactions_pct
 	FROM sales
 	GROUP BY 1
 	```
@@ -590,10 +590,9 @@ Hint: you may want to consider using a recursive CTE to solve this problem!
 	SELECT
 	category_name,
 	SUM(qty*s.price) as revenue,
-	ROUND(1.0*100*SUM(qty*s.price)/(SELECT
-					  				SUM(qty*s.price)
-					  				FROM product_details pd
-					  				JOIN sales s ON pd.product_id=s.prod_id),2) AS pct_of_total
+	ROUND(1.0*100*SUM(qty*s.price)/(SELECT SUM(qty*s.price)
+	FROM product_details pd
+	JOIN sales s ON pd.product_id=s.prod_id),2) AS pct_of_total
 	FROM product_details pd
 	JOIN sales s ON pd.product_id=s.prod_id
 	GROUP BY 1
@@ -635,9 +634,8 @@ Hint: you may want to consider using a recursive CTE to solve this problem!
 	SELECT
 	pd.product_id,
 	product_name,
-	ROUND(1.0*100*COUNT(txn_id)/(SELECT
-				  				 COUNT(DISTINCT txn_id)
-				  				 FROM sales),2) AS penetration
+	ROUND(1.0*100*COUNT(txn_id)/(SELECT COUNT(DISTINCT txn_id)
+	FROM sales),2) AS penetration
 	FROM product_details pd
 	JOIN sales s ON pd.product_id=s.prod_id
 	GROUP BY 1,2
@@ -705,9 +703,9 @@ Hint: you may want to consider using a recursive CTE to solve this problem!
 	COUNT(*) AS count
 	FROM product_cte p1
 	JOIN product_cte p2 ON p1.txn_id=p2.txn_id
-						AND p1.product_id<p2.product_id
+	AND p1.product_id<p2.product_id
 	JOIN product_cte p3 ON p2.txn_id=p3.txn_id
-						AND p2.product_id<p3.product_id
+	AND p2.product_id<p3.product_id
 	GROUP BY 1,2,3
 	ORDER BY 4 DESC
 	LIMIT 5;
