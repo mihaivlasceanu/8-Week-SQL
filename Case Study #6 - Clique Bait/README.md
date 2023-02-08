@@ -290,8 +290,8 @@ Using the available datasets - answer the following questions using a single que
 	```sql
 	SELECT
 	ROUND(1.0*100*COUNT(DISTINCT visit_id)/(SELECT
-					 						COUNT(DISTINCT visit_id)
-					 						FROM events),2) AS pct_purchases
+	COUNT(DISTINCT visit_id)
+	FROM events),2) AS pct_purchases
 	FROM events
 	WHERE event_type=3
 
