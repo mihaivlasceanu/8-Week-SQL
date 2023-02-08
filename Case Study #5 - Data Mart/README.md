@@ -152,75 +152,77 @@ In a single query, perform the following operations and generate a new table in 
 - Ensure all null string values with an "unknown" string value in the original segment column as well as the new age_band and demographic columns
 
 - Generate a new avg_transaction column as the sales value divided by transactions rounded to 2 decimal places for each record
+	```sql
+	SELECT
+	TO_DATE(week_date, 'DD/MM/YY') AS week_date,
+	DATE_PART('week', week_date::DATE) AS week_number,
+	DATE_PART('month', week_date::DATE) AS month_number,
+	DATE_PART('year', week_date::DATE) AS calendar_year,
+	region,
+	platform,
+	CASE WHEN segment = 'null' THEN 'unknown'
+	     ELSE segment END AS segment,
+	CASE WHEN RIGHT(segment,1) = '1' THEN 'Young Adults'
+		 WHEN RIGHT(segment,1) = '2' THEN 'Middle Aged'
+	     WHEN RIGHT(segment,1) IN ('3','4') THEN 'Retirees' 
+		 ELSE 'unknown' END AS age_band,
+	CASE WHEN LEFT(segment,1) = 'C' THEN 'Couples'
+	     WHEN LEFT (segment,1) = 'F' THEN 'Families' 
+		 ELSE 'unknown' END AS demographic,
+	customer_type,
+	sales,
+	transactions,
+	ROUND(sales::numeric/transactions,2) AS avg_transaction
+	INTO clean_weekly_sales
+	FROM weekly_sales 
 
-		SELECT
-		TO_DATE(week_date, 'DD/MM/YY') AS week_date,
-		DATE_PART('week', week_date::DATE) AS week_number,
-		DATE_PART('month', week_date::DATE) AS month_number,
-		DATE_PART('year', week_date::DATE) AS calendar_year,
-		region,
-		platform,
-		CASE WHEN segment = 'null' THEN 'unknown'
-		     ELSE segment END AS segment,
-		CASE WHEN RIGHT(segment,1) = '1' THEN 'Young Adults'
-			 WHEN RIGHT(segment,1) = '2' THEN 'Middle Aged'
-		     WHEN RIGHT(segment,1) IN ('3','4') THEN 'Retirees' 
-			 ELSE 'unknown' END AS age_band,
-		CASE WHEN LEFT(segment,1) = 'C' THEN 'Couples'
-		     WHEN LEFT (segment,1) = 'F' THEN 'Families' 
-			 ELSE 'unknown' END AS demographic,
-		customer_type,
-		sales,
-		transactions,
-		ROUND(sales::numeric/transactions,2) AS avg_transaction
-		INTO clean_weekly_sales
-		FROM weekly_sales 
-
-		SELECT 
-		*
-		FROM clean_weekly_sales
-		LIMIT 10;
-
-| week_date  | week_number | month_number | calendar_year | region | platform | segment | age_band     | demographic | customer_type | sales    | transactions | avg_transaction |
-|------------|-------------|--------------|---------------|--------|----------|---------|--------------|-------------|---------------|----------|--------------|-----------------|
-| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Retail   | C3      | Retirees     | Couples     | New           | 3656163  | 120631       | 30.31           |
-| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Retail   | F1      | Young Adults | Families    | New           | 996575   | 31574        | 31.56           |
-| 2020-08-31 | 36          | 8            | 2020          | USA    | Retail   | unknown | unknown      | unknown     | Guest         | 16509610 | 529151       | 31.2            |
-| 2020-08-31 | 36          | 8            | 2020          | EUROPE | Retail   | C1      | Young Adults | Couples     | New           | 141942   | 4517         | 31.42           |
-| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Retail   | C2      | Middle Aged  | Couples     | New           | 1758388  | 58046        | 30.29           |
-| 2020-08-31 | 36          | 8            | 2020          | CANADA | Shopify  | F2      | Middle Aged  | Families    | Existing      | 243878   | 1336         | 182.54          |
-| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Shopify  | F3      | Retirees     | Families    | Existing      | 519502   | 2514         | 206.64          |
-| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Shopify  | F1      | Young Adults | Families    | Existing      | 371417   | 2158         | 172.11          |
-| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Shopify  | F2      | Middle Aged  | Families    | New           | 49557    | 318          | 155.84          |
-| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Retail   | C3      | Retirees     | Couples     | New           | 3888162  | 111032       | 35.02           |
+	SELECT 
+	*
+	FROM clean_weekly_sales
+	LIMIT 10;
+	```
+	| week_date  | week_number | month_number | calendar_year | region | platform | segment | age_band     | demographic | customer_type | sales    | transactions | avg_transaction |
+	|------------|-------------|--------------|---------------|--------|----------|---------|--------------|-------------|---------------|----------|--------------|-----------------|
+	| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Retail   | C3      | Retirees     | Couples     | New           | 3656163  | 120631       | 30.31           |
+	| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Retail   | F1      | Young Adults | Families    | New           | 996575   | 31574        | 31.56           |
+	| 2020-08-31 | 36          | 8            | 2020          | USA    | Retail   | unknown | unknown      | unknown     | Guest         | 16509610 | 529151       | 31.2            |
+	| 2020-08-31 | 36          | 8            | 2020          | EUROPE | Retail   | C1      | Young Adults | Couples     | New           | 141942   | 4517         | 31.42           |
+	| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Retail   | C2      | Middle Aged  | Couples     | New           | 1758388  | 58046        | 30.29           |
+	| 2020-08-31 | 36          | 8            | 2020          | CANADA | Shopify  | F2      | Middle Aged  | Families    | Existing      | 243878   | 1336         | 182.54          |
+	| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Shopify  | F3      | Retirees     | Families    | Existing      | 519502   | 2514         | 206.64          |
+	| 2020-08-31 | 36          | 8            | 2020          | ASIA   | Shopify  | F1      | Young Adults | Families    | Existing      | 371417   | 2158         | 172.11          |
+	| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Shopify  | F2      | Middle Aged  | Families    | New           | 49557    | 318          | 155.84          |
+	| 2020-08-31 | 36          | 8            | 2020          | AFRICA | Retail   | C3      | Retirees     | Couples     | New           | 3888162  | 111032       | 35.02           |
 
 ## B. DATA EXPLORATION
 
 1. What day of the week is used for each week_date value?
-
-		SELECT
-		DISTINCT TO_CHAR(week_date,'day')
-		FROM clean_weekly_sales
+	```sql
+	SELECT
+	DISTINCT TO_CHAR(week_date,'day')
+	FROM clean_weekly_sales
+	```
 	| to_char |
 	|---------|
 	| monday  |
 
 2. What range of week numbers are missing from the dataset?
 
-		WITH all_week_numbers AS (
-		SELECT 
-			GENERATE_SERIES(1, 26) AS week_number
-		)
+	```sql
+	WITH all_week_numbers AS (
+	SELECT 
+		GENERATE_SERIES(1, 26) AS week_number
+	)
 
-		SELECT
-		week_number
-		FROM all_week_numbers AS t1
-		WHERE EXISTS (
-			SELECT 1
-			FROM clean_weekly_sales AS t2
-			WHERE t1.week_number = t2.week_number
-		);
-	
+	SELECT
+	week_number
+	FROM all_week_numbers AS t1
+	WHERE EXISTS (
+		SELECT 1
+		FROM clean_weekly_sales AS t2
+		WHERE t1.week_number = t2.week_number
+	);
+	```	
 	| week_number |
 	|-------------|
 	| 13          |
@@ -239,14 +241,14 @@ In a single query, perform the following operations and generate a new table in 
 	| 26          |
 
  3. How many total transactions were there for each year in the dataset?
-
-		SELECT
-		calendar_year,
-		SUM(transactions) AS total_transactions
-		FROM clean_weekly_sales
-		GROUP BY 1
-		ORDER BY 1
-
+	```sql
+	SELECT
+	calendar_year,
+	SUM(transactions) AS total_transactions
+	FROM clean_weekly_sales
+	GROUP BY 1
+	ORDER BY 1
+	```
 	|  calendar_year | total_transactions |
 	|---------------|--------------------|
 	|  2018          | 346406460          |
@@ -254,16 +256,16 @@ In a single query, perform the following operations and generate a new table in 
 	|  2020          | 375813651          |
 
 4. What is the total sales for each region for each month?
-
-		SELECT
-		DATE_TRUNC('month', week_date)::DATE AS calendar_month,
-		region,
-		SUM(sales) AS total_sales
-		FROM clean_weekly_sales
-		GROUP BY calendar_month, region
-		ORDER BY calendar_month, region
-		LIMIT 10;
-
+	```sql
+	SELECT
+	DATE_TRUNC('month', week_date)::DATE AS calendar_month,
+	region,
+	SUM(sales) AS total_sales
+	FROM clean_weekly_sales
+	GROUP BY calendar_month, region
+	ORDER BY calendar_month, region
+	LIMIT 10;
+	```
 	| calendar_month | region        | total_sales |
 	|----------------|---------------|-------------|
 	| 2018-03-01     | AFRICA        | 130542213   |
@@ -278,14 +280,14 @@ In a single query, perform the following operations and generate a new table in 
 	| 2018-04-01     | CANADA        | 163479820   |
 
 5. What is the total count of transactions for each platform?
-
-		SELECT
-		platform, 
-		SUM(transactions)
-		FROM clean_weekly_sales
-		GROUP BY 1
-		ORDER BY 1
-
+	```sql
+	SELECT
+	platform, 
+	SUM(transactions)
+	FROM clean_weekly_sales
+	GROUP BY 1
+	ORDER BY 1
+	```
 	| platform | sum        |
 	|----------|------------|
 	| Retail   | 1081934227 |
@@ -294,60 +296,60 @@ In a single query, perform the following operations and generate a new table in 
 6. What is the percentage of sales for Retail vs Shopify for each month?
 
 	SOLUTION 1
-
-		WITH platform_sales AS (
-		SELECT
-			calendar_year,
-			month_number, 
-			platform,
-			SUM(sales) AS separate_sales,
-			SUM(SUM(sales)) OVER (PARTITION BY calendar_year, month_number) AS total_sales
-		FROM clean_weekly_sales
-		GROUP BY 1,2,3
-		ORDER BY 1,2,3
-		)
-
-		, percentage_sales AS (
-		SELECT 
-			calendar_year,
-			month_number, 
-			platform,
-			ROUND(separate_sales/total_sales*100,2) AS percentage
-		FROM platform_sales
-		ORDER BY 1,2,3
-		) 
-
-		SELECT
+	```sql
+	WITH platform_sales AS (
+	SELECT
 		calendar_year,
-		month_number,
-		CASE WHEN platform='Retail' THEN percentage ELSE 100 - percentage END AS retail_percentage,
-		CASE WHEN platform='Shopify' THEN percentage ELSE 100 - percentage END AS shopify_percentage
-		FROM percentage_sales
-		--GROUP BY month_number
-		GROUP BY 1,2,3,4
-		ORDER BY 1,2,3,4
+		month_number, 
+		platform,
+		SUM(sales) AS separate_sales,
+		SUM(SUM(sales)) OVER (PARTITION BY calendar_year, month_number) AS total_sales
+	FROM clean_weekly_sales
+	GROUP BY 1,2,3
+	ORDER BY 1,2,3
+	)
 
+	, percentage_sales AS (
+	SELECT 
+		calendar_year,
+		month_number, 
+		platform,
+		ROUND(separate_sales/total_sales*100,2) AS percentage
+	FROM platform_sales
+	ORDER BY 1,2,3
+	) 
+
+	SELECT
+	calendar_year,
+	month_number,
+	CASE WHEN platform='Retail' THEN percentage ELSE 100 - percentage END AS retail_percentage,
+	CASE WHEN platform='Shopify' THEN percentage ELSE 100 - percentage END AS shopify_percentage
+	FROM percentage_sales
+	--GROUP BY month_number
+	GROUP BY 1,2,3,4
+	ORDER BY 1,2,3,4
+	```
 	SOLUTION 2
-
-		WITH sales_cte AS (
-		SELECT 
-			calendar_year,
-			month_number,
-			SUM(CASE WHEN platform='Retail' THEN sales END) AS retail_sales,
-			SUM(CASE WHEN platform='Shopify' THEN sales END) AS shopify_sales,
-			SUM(sales) AS total_sales
-		FROM clean_weekly_sales
-		GROUP BY 1,2
-		ORDER BY 1,2
-		)
-
-		SELECT 
+	```sql
+	WITH sales_cte AS (
+	SELECT 
 		calendar_year,
 		month_number,
-		ROUND(1.0*retail_sales/total_sales*100, 2) AS retail_percent,
-		ROUND(1.0*shopify_sales/total_sales*100, 2) AS shopify_percent
-		FROM sales_cte;
+		SUM(CASE WHEN platform='Retail' THEN sales END) AS retail_sales,
+		SUM(CASE WHEN platform='Shopify' THEN sales END) AS shopify_sales,
+		SUM(sales) AS total_sales
+	FROM clean_weekly_sales
+	GROUP BY 1,2
+	ORDER BY 1,2
+	)
 
+	SELECT 
+	calendar_year,
+	month_number,
+	ROUND(1.0*retail_sales/total_sales*100, 2) AS retail_percent,
+	ROUND(1.0*shopify_sales/total_sales*100, 2) AS shopify_percent
+	FROM sales_cte;
+	```
 	| calendar_year | month_number | retail_percent | shopify_percent |
 	|---------------|--------------|----------------|-----------------|
 	| 2018          | 3            | 97.92          | 2.08            |
@@ -374,26 +376,26 @@ In a single query, perform the following operations and generate a new table in 
 7. What is the (amount and the) percentage of sales by demographic for each year in the dataset?
 
 	SOLUTION 1:
-
-		WITH demographic_sales AS (
-		SELECT
-			calendar_year,
-			SUM(CASE WHEN demographic = 'Couples' THEN sales END) AS couple_sales,
-			SUM(CASE WHEN demographic = 'Families' THEN sales END) AS family_sales,
-			SUM(CASE WHEN demographic = 'unknown' THEN sales END) AS unknown_sales,
-			SUM(sales) as total_sales
-		FROM clean_weekly_sales
-		GROUP BY 1
-		)
-
-		SELECT
+	```sql
+	WITH demographic_sales AS (
+	SELECT
 		calendar_year,
-		ROUND(1.0*couple_sales/total_sales*100,2) AS couple_percentage,
-		ROUND(1.0*family_sales/total_sales*100,2) AS family_sales,
-		ROUND(1.0*unknown_sales/total_sales*100,2) AS unknown_sales
-		FROM demographic_sales
-		ORDER BY 1
+		SUM(CASE WHEN demographic = 'Couples' THEN sales END) AS couple_sales,
+		SUM(CASE WHEN demographic = 'Families' THEN sales END) AS family_sales,
+		SUM(CASE WHEN demographic = 'unknown' THEN sales END) AS unknown_sales,
+		SUM(sales) as total_sales
+	FROM clean_weekly_sales
+	GROUP BY 1
+	)
 
+	SELECT
+	calendar_year,
+	ROUND(1.0*couple_sales/total_sales*100,2) AS couple_percentage,
+	ROUND(1.0*family_sales/total_sales*100,2) AS family_sales,
+	ROUND(1.0*unknown_sales/total_sales*100,2) AS unknown_sales
+	FROM demographic_sales
+	ORDER BY 1
+	```
 	| calendar_year | couple_percentage | family_sales | unknown_sales |
 	|---------------|-------------------|--------------|---------------|
 	| 2018          | 26.38             | 31.99        | 41.63         |
@@ -401,20 +403,20 @@ In a single query, perform the following operations and generate a new table in 
 	| 2020          | 28.72             | 32.73        | 38.55         |
 
 	SOLUTION 2 (differently displayed):
-
-		SELECT
-		calendar_year,
-		demographic,
-		SUM(sales) AS yearly_sales,
-		ROUND((100 * SUM(sales) / SUM(SUM(sales)) OVER (PARTITION BY calendar_year))::NUMERIC, 2) AS percentage
-		FROM clean_weekly_sales
-		GROUP BY
-		calendar_year,
-		demographic
-		ORDER BY
-		calendar_year,
-		demographic;
-
+	```sql
+	SELECT
+	calendar_year,
+	demographic,
+	SUM(sales) AS yearly_sales,
+	ROUND((100 * SUM(sales) / SUM(SUM(sales)) OVER (PARTITION BY calendar_year))::NUMERIC, 2) AS percentage
+	FROM clean_weekly_sales
+	GROUP BY
+	calendar_year,
+	demographic
+	ORDER BY
+	calendar_year,
+	demographic;
+	```
 	| calendar_year | demographic | yearly_sales | percentage |
 	|---------------|-------------|--------------|------------|
 	| 2018          | Couples     | 3402388688   | 26.38      |
@@ -430,16 +432,16 @@ In a single query, perform the following operations and generate a new table in 
 8. Which age_band and demographic values contribute the most to Retail sales?
 
 - age band only
-
-		SELECT
-		age_band,
-		SUM(sales) AS total_sales,
-		ROUND(100 * SUM(sales)/ SUM(SUM(sales)) OVER ()) AS sales_percentage     -- important NOT to partition inside the window function
-		FROM clean_weekly_sales
-		WHERE platform = 'Retail'
-		GROUP BY age_band
-		ORDER BY sales_percentage DESC;
-
+	```sql
+	SELECT
+	age_band,
+	SUM(sales) AS total_sales,
+	ROUND(100 * SUM(sales)/ SUM(SUM(sales)) OVER ()) AS sales_percentage     -- important NOT to partition inside the window function
+	FROM clean_weekly_sales
+	WHERE platform = 'Retail'
+	GROUP BY age_band
+	ORDER BY sales_percentage DESC;
+	```
 	| age_band     | total_sales | sales_percentage |
 	|--------------|-------------|------------------|
 	| unknown      | 16067285533 | 41               |
@@ -448,16 +450,16 @@ In a single query, perform the following operations and generate a new table in 
 	| Young Adults | 4373812090  | 11               |
 
 - demographic only
-
-		SELECT
-		demographic,
-		SUM(sales) AS total_sales,
-		ROUND(100 * SUM(sales) / SUM(SUM(sales)) OVER ()) AS sales_percentage
-		FROM clean_weekly_sales
-		WHERE platform = 'Retail'
-		GROUP BY demographic
-		ORDER BY sales_percentage DESC;
-
+	```sql
+	SELECT
+	demographic,
+	SUM(sales) AS total_sales,
+	ROUND(100 * SUM(sales) / SUM(SUM(sales)) OVER ()) AS sales_percentage
+	FROM clean_weekly_sales
+	WHERE platform = 'Retail'
+	GROUP BY demographic
+	ORDER BY sales_percentage DESC;
+	```
 	| demographic | total_sales | sales_percentage |
 	|-------------|-------------|------------------|
 	| unknown     | 16067285533 | 41               |
@@ -465,17 +467,17 @@ In a single query, perform the following operations and generate a new table in 
 	| Couples     | 10827663141 | 27               |
 
 - both age and demographic
-
-		SELECT
-		age_band,
-		demographic,
-		SUM(sales) AS total_sales,
-		ROUND(100 * SUM(sales) / SUM(SUM(sales)) OVER ()) AS sales_percentage
-		FROM clean_weekly_sales
-		WHERE platform = 'Retail'
-		GROUP BY age_band, demographic
-		ORDER BY sales_percentage DESC;
-
+	```sql
+	SELECT
+	age_band,
+	demographic,
+	SUM(sales) AS total_sales,
+	ROUND(100 * SUM(sales) / SUM(SUM(sales)) OVER ()) AS sales_percentage
+	FROM clean_weekly_sales
+	WHERE platform = 'Retail'
+	GROUP BY age_band, demographic
+	ORDER BY sales_percentage DESC;
+	```
 	| age_band     | demographic | total_sales | sales_percentage |
 	|--------------|-------------|-------------|------------------|
 	| unknown      | unknown     | 16067285533 | 41               |
@@ -489,15 +491,15 @@ In a single query, perform the following operations and generate a new table in 
 9. Can we use the avg_transaction column to find the average transaction size for each year for Retail vs Shopify? If not - how would you calculate it instead?
 
 	--Answer: No, because averages of averages are to be avoided (incorrect denominator)
-
-		SELECT 
-		calendar_year,
-		platform,
-		ROUND(1.0*SUM(sales)/SUM(transactions),2) AS average_transaction
-		FROM clean_weekly_sales
-		GROUP BY 1,2
-		ORDER BY 1,2
-
+	```sql
+	SELECT 
+	calendar_year,
+	platform,
+	ROUND(1.0*SUM(sales)/SUM(transactions),2) AS average_transaction
+	FROM clean_weekly_sales
+	GROUP BY 1,2
+	ORDER BY 1,2
+	```
 	| calendar_year | platform | average_transaction |
 	|---------------|----------|---------------------|
 	| 2018          | Retail   | 36.56               |
@@ -522,96 +524,96 @@ Using this analysis approach - answer the following questions:
 - How do the sale metrics for these 2 periods before and after compare with the previous years in 2018 and 2019?
 
 1. 4 weeks before and after
+	```sql
+	WITH four_weeks_2020 AS (
+	SELECT
+		week_date,
+		SUM(sales) AS weekly_sales
+	FROM clean_weekly_sales 
+	WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '4 weeks' AND '2020-06-15'::date + INTERVAL '3 weeks'
+	GROUP BY 1
+	ORDER BY 1
+	)
 
-		WITH four_weeks_2020 AS (
-		SELECT
-			week_date,
-			SUM(sales) AS weekly_sales
-		FROM clean_weekly_sales 
-		WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '4 weeks' AND '2020-06-15'::date + INTERVAL '3 weeks'
-		GROUP BY 1
-		ORDER BY 1
-		)
+	, four_before_after AS (
+	SELECT 
+		SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_4,
+		SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_4
+	FROM four_weeks_2020
+	)
 
-		, four_before_after AS (
-		SELECT 
-			SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_4,
-			SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_4
-		FROM four_weeks_2020
-		)
-
-		SELECT 
-		previous_4,
-		following_4,
-		following_4 - previous_4 AS absolute_growth,
-		ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
-		FROM four_before_after
-
+	SELECT 
+	previous_4,
+	following_4,
+	following_4 - previous_4 AS absolute_growth,
+	ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
+	FROM four_before_after
+	```
 	| previous_4 | following_4 | absolute_growth | pct_growth |
 	|------------|-------------|-----------------|------------|
 	| 2345878357 | 2318994169  | -26884188       | -1.15      |
 
 2. 12 weeks before and after
+	```sql
+	WITH twelve_weeks_2020 AS (
+	SELECT
+		week_date,
+		SUM(sales) as weekly_sales
+	FROM clean_weekly_sales 
+	WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '12 weeks' AND '2020-06-15'::date + INTERVAL '11 weeks'
+	GROUP BY 1
+	ORDER BY 1
+	)
 
-		WITH twelve_weeks_2020 AS (
-		SELECT
-			week_date,
-			SUM(sales) as weekly_sales
-		FROM clean_weekly_sales 
-		WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '12 weeks' AND '2020-06-15'::date + INTERVAL '11 weeks'
-		GROUP BY 1
-		ORDER BY 1
-		)
+	, twelve_before_after AS (
+	SELECT 
+		SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_12,
+		SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_12
+	FROM twelve_weeks_2020
+	)
 
-		, twelve_before_after AS (
-		SELECT 
-			SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_12,
-			SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_12
-		FROM twelve_weeks_2020
-		)
-
-		SELECT 
-		previous_12,
-		following_12,
-		following_12 - previous_12 AS absolute_growth,
-		ROUND(1.0*100*(following_12-previous_12)/previous_12,2) AS pct_growth
-		FROM twelve_before_after
-
+	SELECT 
+	previous_12,
+	following_12,
+	following_12 - previous_12 AS absolute_growth,
+	ROUND(1.0*100*(following_12-previous_12)/previous_12,2) AS pct_growth
+	FROM twelve_before_after
+	```
 	| previous_12 | following_12 | absolute_growth | pct_growth |
 	|-------------|--------------|-----------------|------------|
 	| 7126273147  | 6973947753   | -152325394      | -2.14      |
 
 3. same periods but for 2018 and 2019 - using a slightly different approach (by taking advantage of our week_number column)
 - 4 weeks
-
-		WITH year_to_year AS (
-		SELECT
-			calendar_year,
-			week_number,
-			SUM(sales) AS weekly_sales
-		FROM clean_weekly_sales 
-		WHERE week_number BETWEEN 21 AND 28
-		GROUP BY 1,2
-		ORDER BY 1
-		)
-
-		, year_to_year_2 AS (
-		SELECT 
-			calendar_year,
-			SUM(CASE WHEN week_number BETWEEN 21 AND 24 THEN weekly_sales END) AS previous_4,
-			SUM(CASE WHEN week_number BETWEEN 25 AND 28 THEN weekly_sales END) AS following_4
-		FROM year_to_year
-		GROUP BY 1
-		)
-
-		SELECT 
+	```sql
+	WITH year_to_year AS (
+	SELECT
 		calendar_year,
-		previous_4,
-		following_4,
-		following_4 - previous_4 AS absolute_growth,
-		ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
-		FROM year_to_year_2
+		week_number,
+		SUM(sales) AS weekly_sales
+	FROM clean_weekly_sales 
+	WHERE week_number BETWEEN 21 AND 28
+	GROUP BY 1,2
+	ORDER BY 1
+	)
 
+	, year_to_year_2 AS (
+	SELECT 
+		calendar_year,
+		SUM(CASE WHEN week_number BETWEEN 21 AND 24 THEN weekly_sales END) AS previous_4,
+		SUM(CASE WHEN week_number BETWEEN 25 AND 28 THEN weekly_sales END) AS following_4
+	FROM year_to_year
+	GROUP BY 1
+	)
+
+	SELECT 
+	calendar_year,
+	previous_4,
+	following_4,
+	following_4 - previous_4 AS absolute_growth,
+	ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
+	FROM year_to_year_2
+	```
 	| calendar_year | previous_4 | following_4 | absolute_growth | pct_growth |
 	|---------------|------------|-------------|-----------------|------------|
 	| 2018          | 2125140809 | 2129242914  | 4102105         | 0.19       |
@@ -619,35 +621,35 @@ Using this analysis approach - answer the following questions:
 	| 2020          | 2345878357 | 2318994169  | -26884188       | -1.15      |
 
 - 12 weeks
-
-		WITH year_to_year AS (
-		SELECT
-			calendar_year,
-			week_number,
-		SUM(sales) AS weekly_sales
-		FROM clean_weekly_sales 
-		WHERE week_number BETWEEN 13 AND 37
-		GROUP BY 1,2
-		ORDER BY 1
-		)
-
-		, year_to_year_2 AS (
-		SELECT 
-			calendar_year,
-			SUM(CASE WHEN week_number BETWEEN 13 AND 24 THEN weekly_sales END) AS previous_4,
-			SUM(CASE WHEN week_number BETWEEN 25 AND 37 THEN weekly_sales END) AS following_4
-		FROM year_to_year
-		GROUP BY 1
-		)
-
-		SELECT 
+	```sql
+	WITH year_to_year AS (
+	SELECT
 		calendar_year,
-		previous_4,
-		following_4,
-		following_4 - previous_4 AS absolute_growth,
-		ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
-		FROM year_to_year_2
+		week_number,
+	SUM(sales) AS weekly_sales
+	FROM clean_weekly_sales 
+	WHERE week_number BETWEEN 13 AND 37
+	GROUP BY 1,2
+	ORDER BY 1
+	)
 
+	, year_to_year_2 AS (
+	SELECT 
+		calendar_year,
+		SUM(CASE WHEN week_number BETWEEN 13 AND 24 THEN weekly_sales END) AS previous_4,
+		SUM(CASE WHEN week_number BETWEEN 25 AND 37 THEN weekly_sales END) AS following_4
+	FROM year_to_year
+	GROUP BY 1
+	)
+
+	SELECT 
+	calendar_year,
+	previous_4,
+	following_4,
+	following_4 - previous_4 AS absolute_growth,
+	ROUND(1.0*100*(following_4-previous_4)/previous_4,2) AS pct_growth
+	FROM year_to_year_2
+	```
 	| calendar_year | previous_4 | following_4 | absolute_growth | pct_growth |
 	|---------------|------------|-------------|-----------------|------------|
 	| 2018          | 6396562317 | 6500818510  | 104256193       | 1.63       |
@@ -663,48 +665,48 @@ Which areas of the business have the highest negative impact in sales metrics pe
 - demographic
 - customer_type
 Do you have any further recommendations for Danny’s team at Data Mart or any interesting insights based off this analysis?
-
-		WITH twelve_weeks_2020 AS (
-		SELECT
-			week_date,
-			region,
-			--platform,
-			--age_band,
-			--demographic,
-			--customer_type,
-			SUM(sales) AS weekly_sales
-		FROM clean_weekly_sales 
-		WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '12 weeks' AND '2020-06-15'::date + INTERVAL '11 weeks'
-		GROUP BY 1,2 --,2,3,4,5,6
-		ORDER BY 1
-		)
-
-		, twelve_before_after AS (
-		SELECT 
-			region,
-			--platform,
-			--age_band,
-			--demographic,
-			--customer_type,
-			SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_12,
-			SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_12
-		FROM twelve_weeks_2020
-		GROUP BY 1
-		)
-
-		SELECT 
+	```sql
+	WITH twelve_weeks_2020 AS (
+	SELECT
+		week_date,
 		region,
 		--platform,
 		--age_band,
 		--demographic,
 		--customer_type,
-		previous_12,
-		following_12,
-		following_12 - previous_12 AS absolute_growth,
-		ROUND(1.0*100*(following_12-previous_12)/previous_12,2) AS pct_growth
-		FROM twelve_before_after
-		ORDER BY pct_growth
+		SUM(sales) AS weekly_sales
+	FROM clean_weekly_sales 
+	WHERE week_date BETWEEN '2020-06-15'::date - INTERVAL '12 weeks' AND '2020-06-15'::date + INTERVAL '11 weeks'
+	GROUP BY 1,2 --,2,3,4,5,6
+	ORDER BY 1
+	)
 
+	, twelve_before_after AS (
+	SELECT 
+		region,
+		--platform,
+		--age_band,
+		--demographic,
+		--customer_type,
+		SUM(CASE WHEN week_date <'2020-06-15' THEN weekly_sales END) AS previous_12,
+		SUM(CASE WHEN week_date >='2020-06-15' THEN weekly_sales END) AS following_12
+	FROM twelve_weeks_2020
+	GROUP BY 1
+	)
+
+	SELECT 
+	region,
+	--platform,
+	--age_band,
+	--demographic,
+	--customer_type,
+	previous_12,
+	following_12,
+	following_12 - previous_12 AS absolute_growth,
+	ROUND(1.0*100*(following_12-previous_12)/previous_12,2) AS pct_growth
+	FROM twelve_before_after
+	ORDER BY pct_growth
+	```
 Testing out area by area, we find that:
 - when it comes to the regions we analyzed, only Europe registered positive growth 
 - Shopify grew significantly, while Retail experienced a drop in sales
