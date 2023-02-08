@@ -201,8 +201,8 @@ The following case study questions include some general data exploration analysi
 	     	END AS run_id
 	FROM output_table t1
 	INNER JOIN ranked_customer_nodes t2 ON t1.rn + 1 = t2.rn
-										AND t1.customer_id = t2.customer_id
-										And t2.rn > 1
+	AND t1.customer_id = t2.customer_id
+	And t2.rn > 1
 	)
 
 	,cte_customer_nodes AS (
@@ -252,8 +252,8 @@ The following case study questions include some general data exploration analysi
 	         END AS run_id
 	FROM output_table t1
 	INNER JOIN ranked_customer_nodes t2 ON t1.rn + 1 = t2.rn
-	    								AND t1.customer_id = t2.customer_id
-	    								And t2.rn > 1
+	AND t1.customer_id = t2.customer_id
+	And t2.rn > 1
 	)
 
 	, cte_customer_nodes AS (
@@ -374,7 +374,7 @@ The following case study questions include some general data exploration analysi
 	customer_id,
 	month,
 	SUM(monthly_balance) OVER (PARTITION BY customer_id ORDER BY month 
-								ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS closing_balance
+	ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS closing_balance
 	FROM monthly_txn
 	ORDER BY customer_id
 	LIMIT 20;
@@ -432,7 +432,7 @@ The following case study questions include some general data exploration analysi
 	    ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS ending_balance
 	FROM cte_generated_months
 	LEFT JOIN cte_monthly_balances ON cte_generated_months.month = cte_monthly_balances.month
-	  							   AND cte_generated_months.customer_id = cte_monthly_balances.customer_id
+	AND cte_generated_months.customer_id = cte_monthly_balances.customer_id
 	WHERE cte_generated_months.customer_id BETWEEN 1 and 3;
 	```
 	| customer_id | month      | balance_contribution | ending_balance |
@@ -484,7 +484,7 @@ Move from a positive balance in the first month to a negative balance in the sec
 	    COALESCE(cte_monthly_balances.balance, 0) AS transaction_amount
 	FROM cte_generated_months
 	LEFT JOIN cte_monthly_balances ON cte_generated_months.month = cte_monthly_balances.month
-	    						   AND cte_generated_months.customer_id = cte_monthly_balances.customer_id
+	AND cte_generated_months.customer_id = cte_monthly_balances.customer_id
 	)
 
 	, cte_monthly_aggregates AS (
@@ -565,7 +565,7 @@ txn_date,
 txn_type,
 txn_sign,
 SUM(txn_sign) OVER (PARTITION BY customer_id ORDER BY txn_date 
-					ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_balance
+ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_balance
 FROM txn_cte
 ORDER BY 1,2,3
 LIMIT 20;
@@ -610,7 +610,7 @@ SELECT
 customer_id,
 month,
 SUM(monthly_balance) OVER (PARTITION BY customer_id ORDER BY month 
-							ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS closing_balance
+ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS closing_balance
 FROM monthly_txn
 ORDER BY customer_id
 LIMIT 20;
@@ -659,7 +659,7 @@ SELECT
 	txn_type,
 	txn_sign,
 	SUM(txn_sign) OVER (PARTITION BY customer_id ORDER BY txn_date 
-						ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_balance
+	ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS running_balance
 FROM txn_cte
 ORDER BY 1,2,3
 )
